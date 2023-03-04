@@ -2,7 +2,7 @@ package Act_6;
 import javax.swing.*;
 public class Act_6 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { //Asdruds
 
         String nombreA;
         int [] calificaciones = new int [5];
