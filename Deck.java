@@ -46,7 +46,6 @@ public class Deck { //Asdruds
 
         Card Head = this.NuevoDeck.get(0);
         System.out.println(Head.palo + ", " + Head.color+ ", " + Head.valor);
-        String color = Head.color;
         this.NuevoDeck.remove(0);
 
         System.out.println("Quedan "+ this.NuevoDeck.size() + " cartas en deck.");
