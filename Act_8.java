@@ -1,17 +1,20 @@
 package Act_8;
 import javax.swing.*;
+import java.util.Scanner;
 
 public class Act_8 { //Asdruds
 
     public static void main(String[] args) {
 
-        String op = JOptionPane.showInputDialog("Iniciar nuevo juego de Poker: \na) Si \nb) No");
+        Scanner scanner = new Scanner(System.in);
+
+        String op = JOptionPane.showInputDialog("Iniciar nuevo juego de Poker: \n Si \n No");
 
         if (op.equals("Si")){
 
             Deck NDeck = new Deck();
 
-            String poker = JOptionPane.showInputDialog("Elige una opción:\n  a) Mezclar\n  b) Mostrar primer carta\n  c) Seleccionar carta al azar\n  d) Sacar 5 cartas\n  e) Salir");
+            String poker = JOptionPane.showInputDialog("Elige una opción:\n  a) Mezclar\n  b) Mostrar primer carta\n  c) Seleccionar carta al azar\n  d) Sacar 5 cartas\n  e) Cambiar\n  f) Salir");
 
             do {
                 switch (poker) {
@@ -31,16 +34,27 @@ public class Act_8 { //Asdruds
                     case "D":
                         NDeck.hand();
                         break;
-                    case "e":
+                    case "e":  //Asdruds
                     case "E":
+                            System.out.println("¿Cuántas cartas deseas cambiar? 0 - 5");
+                            int numC = scanner.nextInt();
+                            if (numC < 0 || numC > 5){
+                                do{
+                                    System.out.println("Cantidad no disponible, deben ser entre 0 - 5");
+                                    numC = scanner.nextInt();
+                                }while(numC < 0 || numC > 5);
+                            }
+                            NDeck.cambiar(numC);
+                    case "f":
+                    case "F":
                         break;
                     default:
                         System.out.println("Opción no válida");
                 }
 
-                poker = JOptionPane.showInputDialog("Elige otra opción:\n  a) Mezclar\n  b) Mostrar primer carta\n  c) Seleccionar carta al azar\n  d) Sacar 5 cartas\n  e) Salir");
+                poker = JOptionPane.showInputDialog("Elige otra opción:\n  a) Mezclar\n  b) Mostrar primer carta\n  c) Seleccionar carta al azar\n  d) Sacar 5 cartas\n  e) Cambiar\n  f) Salir");
 
-            } while (!poker.equals("e"));
+            } while (!poker.equals("f") && !poker.equals("F"));
 
             System.out.println("Juego finalizado. ");
 
