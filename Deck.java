@@ -79,4 +79,24 @@ public class Deck { //Asdruds
         Collections.shuffle(this.NuevoDeck);
 
     }
+    
+    public void cambiar(int numCartas){  //Asdruds
+
+        if (numCartas == 0) {
+            System.out.println("No se cambió ninguna carta.");
+        } else {
+            for (int x = 0; x < numCartas; x++){
+                int num = R.nextInt(this.NuevoDeck.size() + 1);
+                Card Pick =  this.NuevoDeck.get(num);
+
+                System.out.println(Pick.palo + ", " + Pick.color + ", " + Pick.valor);
+                this.NuevoDeck.remove(num);
+            }
+            System.out.println("Se cambiaron " + numCartas + " cartas");
+            System.out.println("Quedan "+ this.NuevoDeck.size() + " cartas en deck.");
+        }
+
+    }
+
+    
 }
